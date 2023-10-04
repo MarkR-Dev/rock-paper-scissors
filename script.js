@@ -1,16 +1,21 @@
 "use strict"
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".choice");
 const resultsDiv = document.querySelector("#results");
 const scoreDiv = document.querySelector("#score");
 const playerScoreDom = document.querySelector("#player-score");
 const computerScoreDom = document.querySelector("#computer-score");
+const resetBtn = document.querySelector("#reset");
 let playerScore = 0;
 let computerScore = 0;
 
-buttons.forEach(btn => {
-    btn.addEventListener("click", playRound);
-})
+resetBtn.addEventListener("click", resetGame);
+
+function addListeners(){
+    buttons.forEach(btn => {
+        btn.addEventListener("click", playRound);
+    });
+}
 
 function getComputerChoice(){
     let randomChoice = Math.floor((Math.random() * 3));
@@ -35,6 +40,14 @@ function displayWinner(){
     })
 }
 
+function resetGame(){
+    playerScore = 0;
+    computerScore = 0;
+    displayScore();
+    resultsDiv.textContent = "Choose an option";
+    addListeners();
+}
+
 function playRound(event){
     let computerSelection = getComputerChoice();
     let playerSelection = event.target.id;
@@ -54,10 +67,9 @@ function playRound(event){
     if(playerScore === 5 || computerScore === 5){
         displayWinner();
     }
-    
 }
 
-
+addListeners();
 
 
 
