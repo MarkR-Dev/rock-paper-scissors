@@ -12,8 +12,8 @@ let computerScore = 0;
 resetBtn.addEventListener("click", resetGame);
 
 function addListeners(){
-    buttons.forEach(btn => {
-        btn.addEventListener("click", playRound);
+    buttons.forEach(button => {
+        button.addEventListener("click", playRound);
     });
 }
 
@@ -35,8 +35,8 @@ function displayWinner(){
         resultsDiv.textContent = "Sorry you lost the game.";
     }
 
-    buttons.forEach(btn => {
-        btn.removeEventListener("click", playRound);
+    buttons.forEach(button => {
+        button.removeEventListener("click", playRound);
     })
 }
 
