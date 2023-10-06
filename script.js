@@ -2,14 +2,13 @@
 
 const buttons = document.querySelectorAll(".choice");
 const resultsDiv = document.querySelector("#results");
-const scoreDiv = document.querySelector("#score");
 const playerScoreDom = document.querySelector("#player-score");
 const computerScoreDom = document.querySelector("#computer-score");
-const resetBtn = document.querySelector("#reset");
+const resetButton = document.querySelector("#reset");
 let playerScore = 0;
 let computerScore = 0;
 
-resetBtn.addEventListener("click", resetGame);
+resetButton.addEventListener("click", resetGame);
 
 function addListeners(){
     buttons.forEach(button => {
@@ -31,8 +30,12 @@ function displayScore(){
 function displayWinner(){
     if(playerScore === 5){
         resultsDiv.textContent = "CONGRATULATIONS! You won the game!";
+        playerScoreDom.style.color = "green";
+        computerScoreDom.style.color = "#e62b2b";
     }else {
         resultsDiv.textContent = "Sorry you lost the game.";
+        playerScoreDom.style.color = "#e62b2b";
+        computerScoreDom.style.color = "green";
     }
 
     buttons.forEach(button => {
@@ -44,6 +47,8 @@ function resetGame(){
     playerScore = 0;
     computerScore = 0;
     displayScore();
+    playerScoreDom.style.color = "white";
+    computerScoreDom.style.color = "white";
     resultsDiv.textContent = "Choose an option";
     addListeners();
 }
@@ -55,10 +60,10 @@ function playRound(event){
     if(playerSelection === computerSelection){
         resultsDiv.textContent = "It's a tie this round!";
     }else if((playerSelection === "Rock" && computerSelection === "Scissors") || (playerSelection === "Paper" && computerSelection === "Rock") || (playerSelection === "Scissors" && computerSelection === "Paper")){
-        resultsDiv.textContent = `You won the round! ${playerSelection} beats ${computerSelection}`;
+        resultsDiv.textContent = `You won the round! ${playerSelection} beats ${computerSelection}!`;
         playerScore++;
     }else{
-        resultsDiv.textContent = `You lost the round! ${playerSelection} loses to ${computerSelection}`;
+        resultsDiv.textContent = `You lost the round! ${playerSelection} loses to ${computerSelection}.`;
         computerScore++;
     }
 

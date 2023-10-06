@@ -3,29 +3,32 @@
     <head>
         <meta charset="UTF-8">
         <title>RPS</title>
+        <link href="style.css" rel="stylesheet">
+        <script src="script.js" defer></script>
     </head>
     <body>
-        <div>
-            <button id="Rock" class="choice">Rock</button>
-            <button id="Paper" class="choice">Paper</button>
-            <button id="Scissors" class="choice">Scissors</button>
-        </div>
+        <div id="container">
+            <h4>First to 5 wins</h3>
+
+            <div id="choice-buttons">
+                <button id="Rock" class="choice">Rock</button>
+                <button id="Paper" class="choice">Paper</button>
+                <button id="Scissors" class="choice">Scissors</button>
+            </div>
        
-        <div id="score">
-            <span id="player-score">0</span> 
-            - 
-            <span id="computer-score">0</span>
-        </div>
+            <div id="score">
+                <span id="player-score">0</span> 
+                - 
+                <span id="computer-score">0</span>
+            </div>
         
-        <div id="results">Choose an option</div>
+            <div id="results">Choose an option</div>
 
-        <div>
-            <button id="reset">Reset Game</button>
-        </div>
+            <div id="reset-button">
+                <button id="reset">Reset Game</button>
+            </div>
         
-
-
-        <script src="script.js"></script>
+        </div>
     </body>
 </html>
 
